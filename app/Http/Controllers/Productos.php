@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class Productos extends Controller
@@ -13,7 +14,8 @@ class Productos extends Controller
      */
     public function index()
     {
-        //
+        $productos = Producto::get();
+        return view('home', compact('productos'));
     }
 
     /**

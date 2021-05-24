@@ -48,12 +48,14 @@ class Productos extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show(Categoria $categoria_id, Request $request)
+    public function showProductosCategoria(Categoria $categoria_id, Request $request)
     {
         $path = $request->path();
-        list($nada, $category) = explode('/', $path);
-        $productos = Producto::where('categoria_id', $category)->get();
+        list($nada, $categoria) = explode('/', $path);
+
+        $productos = Producto::where('categoria_id', $categoria)->get();
         $categorias = Categoria::get();
+
         return view('productosCategoria', ['categoria_id'=>$categoria_id, 'productos'=>$productos, 'categorias'=>$categorias]);   
     }
 

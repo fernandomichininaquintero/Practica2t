@@ -13,7 +13,7 @@
                     if ($count==1) {
             ?>
                         <div class="carousel-item active">    
-                            <div class="card mb-3" style="width: 540px; height: 150px; background-color: #FF9F33;">
+                            <div class="card text-white bg-warning mb-3" style="width: 540px; height: 150px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
                                         <img src="/../practica2t/assets/img/<?= $producto->imagen?>" alt="<?= $producto->nombre?>" height="150px" width="150px">
@@ -32,7 +32,7 @@
                     }else{
             ?>
                         <div class="carousel-item">
-                            <div class="card mb-3" style="width: 540px; height: 150px; background-color: #FF9F33;">
+                            <div class="card text-white bg-warning mb-3" style="width: 540px; height: 150px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
                                         <img src="/../practica2t/assets/img/<?= $producto->imagen?>" alt="<?= $producto->nombre?>" height="150px">

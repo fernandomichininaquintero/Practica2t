@@ -19,7 +19,7 @@
             foreach($categorias as $categoria){
                 if(!$categoria->oculto){
             ?>
-              <a class="dropdown-item"><?= $categoria->nombre ?></a>
+              <a class="dropdown-item" href="http://localhost/practica2t/public/categoria/<?= $categoria->id?>"><?= $categoria->nombre ?></a>
             <?php
               }
             }

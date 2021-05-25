@@ -2,7 +2,7 @@
 
 @section('cuerpo')
 <div class="container">
-
+    <h3>Categoria: <?= $nombreCategoria->nombre?></h3>
     <?php
     $count = 0;
     foreach ($productos as $producto) {
@@ -15,7 +15,7 @@
     <?php
         }
     ?>
-            <div class="card mb-3" style="width: 350px; height: 150px; text-align: center;">
+            <div class="card mb-3 mr-2 p-2" style="width: 350px; height: 150px; text-align: center;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img src="/../practica2t/assets/img/<?= $producto->imagen?>" alt="<?= $producto->nombre?>" height="150px" width="150px">
@@ -29,7 +29,7 @@
                                 $precio = $producto->precio - $descuento;
                             ?>
                                     <p class="card-text"><small class="text-muted"><?=$producto->precio?>€</small></p>
-                                    <p class="card-text"><?= $precio?>€</p>
+                                    <p class="card-text"><small style="color: red;"><?= $producto->descuento?>%</small> <?= $precio?>€</p>
                             <?php
                                 }else{
                             ?>

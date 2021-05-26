@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="col-5 col-sm-7">
                                     <div class="card-body">
-                                        <h5 class="card-title"><?= $producto->nombre?></h5>
+                                        <h5 class="card-title text-uppercase"><?= $producto->nombre?></h5>
                                         <?php    
                                             if($producto->descuento>0){
                                             $descuento = ($producto->descuento * $producto->precio)/100;

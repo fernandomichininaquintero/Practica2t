@@ -16,8 +16,7 @@ class Productos extends Controller
     public function index()
     {
         $productos = Producto::get();
-        $categorias = Categoria::get();
-        return view('home', compact('productos', 'categorias'));
+        return view('home', compact('productos'));
     }
 
     /**
@@ -50,8 +49,8 @@ class Productos extends Controller
     public function showProductosCategoria($categoria_id)
     {
         return view('productosCategoria', ['categoria_id'=>$categoria_id, 
-        'productos'=>Producto::where('categoria_id',$categoria_id)->get(), 
-        'categorias'=>Categoria::get(), 'nombreCategoria'=>Categoria::findOrFail($categoria_id)]);   
+        'productos'=>Producto::where('categoria_id',$categoria_id)->get(),
+        'nombreCategoria'=>Categoria::findOrFail($categoria_id)]);   
     }
 
     /**
@@ -62,9 +61,14 @@ class Productos extends Controller
      */
     public function showProducto($categoria_id, $producto_id)
     {
+        $producto = Producto::findOrFail($producto_id);
+        $descuento = ($producto->descuento * $producto->precio)/100;
+        $precioFinal = $producto->precio - $descuento;
+        
         return view('producto', ['categoria_id'=>$categoria_id,
         'producto_id'=>$producto_id,
-        'producto'=>Producto::findOrFail($producto_id), 
+        'producto'=>$producto,
+        'precioFinal'=>$precioFinal, 
         'categorias'=>Categoria::get()]);   
     }
 

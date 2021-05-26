@@ -10,17 +10,15 @@
             </div>
             <div class="col">
                 <div class="card-body text-right">
-                    <h5 class="card-title "><?= $producto->nombre?></h5>
+                    <h5 class="card-title text-uppercase"><?= $producto->nombre?></h5>
                     <p class="card-text"><?=$producto->descripcion?></p>
                     <br>
                     <br>
                     <?php    
                         if($producto->descuento>0){
-                        $descuento = ($producto->descuento * $producto->precio)/100;
-                        $precio = $producto->precio - $descuento;
                     ?>
                             <p class="card-text"><small class="text-muted"><?=$producto->precio?>€</small></p>
-                            <p class="card-text"><small style="color: red;"><?= $producto->descuento?>%</small> <?= $precio?>€</p>
+                            <p class="card-text"><small style="color: red;"><?= $producto->descuento?>%</small> <?= $precioFinal?>€</p>
                     <?php
                         }else{
                     ?>

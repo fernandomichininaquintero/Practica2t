@@ -44,15 +44,28 @@ class Productos extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  object  $categoria
-     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function showProductosCategoria($categoria_id, Request $request)
+    public function showProductosCategoria($categoria_id)
     {
         return view('productosCategoria', ['categoria_id'=>$categoria_id, 
         'productos'=>Producto::where('categoria_id',$categoria_id)->get(), 
         'categorias'=>Categoria::get(), 'nombreCategoria'=>Categoria::findOrFail($categoria_id)]);   
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $categoria
+     * @return \Illuminate\Http\Response
+     */
+    public function showProducto($categoria_id, $producto_id)
+    {
+        return view('producto', ['categoria_id'=>$categoria_id,
+        'producto_id'=>$producto_id,
+        'producto'=>Producto::findOrFail($producto_id), 
+        'categorias'=>Categoria::get()]);   
     }
 
     /**

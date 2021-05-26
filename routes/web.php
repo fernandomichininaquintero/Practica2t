@@ -19,3 +19,5 @@ Route::get('/', [Productos::class, 'index']);
 Route::get('/home', [Productos::class, 'index']);
 
 Route::get('/categoria/{categoria_id}', [Productos::class, 'showProductosCategoria']);
+
+Route::get('/categoria/{categoria_id}/producto/{producto_id}', [Productos::class, 'showProducto']);

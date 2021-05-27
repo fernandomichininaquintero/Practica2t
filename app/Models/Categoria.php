@@ -9,4 +9,9 @@ class Categoria extends Model
 {
     use HasFactory;
     protected $table = 'categoria';
+
+    public function getCategoriasVisibles()
+    {
+        return $this::where('oculto', false)->get();
+    }
 }

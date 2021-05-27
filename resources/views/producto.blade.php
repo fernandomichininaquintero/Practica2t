@@ -2,30 +2,21 @@
 
 @section('cuerpo')
 <div class="container">
-    <h3 class="text-uppercase"><?= $producto->nombre?></h3>
+    <h3 class="text-uppercase">{{$producto->nombre}}</h3>
     <div class="card mb-3 mr-2">
         <div class="row no-gutters">
             <div class="col-4 p-3">
-                <img src="/../practica2t/assets/img/<?= $producto->imagen?>" class="card-img" alt="<?= $producto->nombre?>" height="300px">
+                <img src="/../practica2t/assets/img/{{$producto->imagen}}" class="card-img" alt="<?= $producto->nombre?>" height="300px">
             </div>
             <div class="col">
                 <div class="card-body text-right">
-                    <h5 class="card-title text-uppercase"><?= $producto->nombre?></h5>
-                    <p class="card-text"><?=$producto->descripcion?></p>
+                    <h5 class="card-title text-uppercase">{{$producto->nombre}}</h5>
+                    <p class="card-text">{{$producto->descripcion}}</p>
                     <br>
                     <br>
-                    <?php    
-                        if($producto->descuento>0){
-                    ?>
-                            <p class="card-text"><small class="text-muted"><?=$producto->precio?>€</small></p>
-                            <p class="card-text"><small style="color: red;"><?= $producto->descuento?>%</small> <?= $precioFinal?>€</p>
-                    <?php
-                        }else{
-                    ?>
-                        <p class="card-text"><?=$producto->precio?>€</p>
-                    <?php
-                        }
-                    ?>
+                    
+                    <p class="card-text"><small class="text-muted">{{$producto->precio}}€</small></p>
+                    <p class="card-text"><small style="color: red;">{{$producto->descuento}}%</small> {{ $producto->getPrecioFinal()}}€</p>
                     
                     <button class="btn btn-primary" type="button">
                         Añadir al carrito <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">

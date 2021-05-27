@@ -59,13 +59,13 @@ class Productos extends Controller
      * @param  int  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function showProducto($categoria_id, $producto_id)
+    public function showProducto($producto_id)
     {
         $producto = Producto::findOrFail($producto_id);
         $descuento = ($producto->descuento * $producto->precio)/100;
         $precioFinal = $producto->precio - $descuento;
         
-        return view('producto', ['categoria_id'=>$categoria_id,
+        return view('producto', [
         'producto_id'=>$producto_id,
         'producto'=>$producto,
         'precioFinal'=>$precioFinal, 

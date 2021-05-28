@@ -5,16 +5,16 @@
     <h3>Categoria: {{$nombreCategoria->nombre}}</h3>
     @php
         $count = 0;
-        $salto_fila=$count%3==0;
     @endphp
     @foreach ($productos as $producto)
     @php 
-        $count++;
+        
         $salto_inicio_fila=$count%3==0;
         $salto_fin_fila=$count%3==2;
-      
+        $count++;
     @endphp
     @if ($salto_inicio_fila)
+
         <div class="row"> 
     @endif
                
@@ -28,13 +28,12 @@
                                 <div class="col-5 col-sm-7">
                                     <div class="card-body">
                                         <h5 class="card-title text-uppercase">{{$producto->nombre}}</h5>
-                                            
-                                                <p class="card-text"><small class="text-muted">{{$producto->precio}}€</small></p>
-                                                <p class="card-text"><small style="color: red;"><?= $producto->descuento?>%</small> {{ $producto->getPrecioFinal()}}€</p>
-                                        
-                                            <p class="card-text"><?=$producto->precio?>€</p>
-                
-                                        
+                                        <p class="card-text">
+                                        @if($producto->descuento>0)
+                                            <small class="text-muted" style="text-decoration: line-through;">{{$producto->precio}}€</small></p>
+                                            <p class="card-text"><small style="color: red;">{{$producto->descuento}}%</small>
+                                        @endif
+                                            {{ $producto->getPrecioFinal()}}€</p>
                                     </div>
                                 </div>
                             </div>

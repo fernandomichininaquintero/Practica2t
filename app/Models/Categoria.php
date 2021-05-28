@@ -12,6 +12,8 @@ class Categoria extends Model
 
     public function getCategoriasVisibles()
     {
-        return $this::where('oculto', false)->get();
+        if(!$this->oculto){
+            return $this->nombre;
+        }
     }
 }

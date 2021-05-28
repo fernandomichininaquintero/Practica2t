@@ -3,7 +3,6 @@
 use App\Models\Categoria;
 
 $categorias = Categoria::get();
-$categoriasVisibles = $categorias->getCategoriasVisibles();
 @endphp
 
 <nav class="navbar navbar-expand-md navbar-light " style="background-color: #33D1FF;">
@@ -20,11 +19,11 @@ $categoriasVisibles = $categorias->getCategoriasVisibles();
       <li class="nav-item">
         <div class="dropdown">
           <button class="btn dropdown-toggle" type="button" id="categorias" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Caregorias
+            Categorias
           </button>
           <div class="dropdown-menu" aria-labelledby="categorias">
-            @foreach($categoriasVisibles as $categoria)
-                <a class="dropdown-item" href="{{route('categoria.ver', ['categoria_id'=>$categoria->id])}}">{{ $categoria->nombre }}</a>
+            @foreach($categorias as $categoria)
+                <a class="dropdown-item" href="{{route('categoria.ver', ['categoria_id'=>$categoria->id])}}">{{ $categoria->getCategoriasVisibles() }}</a>
             @endforeach
           </div>
         </div>

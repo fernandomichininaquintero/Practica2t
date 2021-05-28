@@ -14,9 +14,12 @@
                     <p class="card-text">{{$producto->descripcion}}</p>
                     <br>
                     <br>
-                    
-                    <p class="card-text"><small class="text-muted">{{$producto->precio}}€</small></p>
-                    <p class="card-text"><small style="color: red;">{{$producto->descuento}}%</small> {{ $producto->getPrecioFinal()}}€</p>
+                    <p class="card-text">
+                    @if($producto->descuento>0)
+                        <small class="text-muted" style="text-decoration: line-through;">{{$producto->precio}}€</small></p>
+                        <p class="card-text"><small style="color: red;">{{$producto->descuento}}%</small>
+                    @endif
+                        {{ $producto->getPrecioFinal()}}€</p>
                     
                     <button class="btn btn-primary" type="button">
                         Añadir al carrito <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">

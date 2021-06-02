@@ -19,3 +19,6 @@ Route::get('/', [Productos::class, 'index'])->name('home');
 Route::get('/categoria/{categoria_id}', [Productos::class, 'showProductosCategoria'])->name('categoria.ver');
 
 Route::get('/producto/{producto_id}', [Productos::class, 'showProducto'])->name('producto.ver');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -16,7 +16,7 @@ class Productos extends Controller
     public function index()
     {
         $productos = Producto::get();
-        return view('home', compact('productos'));
+        return view('portada', compact('productos'));
     }
 
     /**

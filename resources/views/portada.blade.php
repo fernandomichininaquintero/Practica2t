@@ -13,14 +13,14 @@
                 @if($producto->destacado) 
                     @if($count==1)
                         <div class="carousel-item active">  
-                            <a href="{{route('producto.ver', ['producto_id'=>$producto->id])}}" style="color: black;">  
+                            <a href="{{route('producto.ver', ['producto_id'=>$producto->id])}}" >  
                                 <div class="card text-white bg-warning mb-3" style="width: 540px; height: 150px;">
                                     <div class="row no-gutters">
                                         <div class="col-md-4">
                                             <img src="/../practica2t/assets/img/{{$producto->imagen}}" alt="{{$producto->nombre}}" height="150px" width="150px">
                                         </div>
                                         <div class="col-md-8">
-                                            <div class="card-body">
+                                            <div class="card-body" style="color: black;">
                                                 <h5 class="card-title">{{$producto->nombre}}</h5>
                                                 <p class="card-text">{{$producto->descripcion}}</p>
                                             </div>
@@ -34,14 +34,14 @@
                         @endphp
                     @else
                         <div class="carousel-item">
-                            <a href="{{route('producto.ver', ['producto_id'=>$producto->id])}}" style="color: black;">
+                            <a href="{{route('producto.ver', ['producto_id'=>$producto->id])}}">
                                 <div class="card text-white bg-warning mb-3" style="width: 540px; height: 150px;">
                                     <div class="row no-gutters">
                                         <div class="col-md-4">
                                             <img src="/../practica2t/assets/img/{{$producto->imagen}}" alt="{{$producto->nombre}}" height="150px">
                                         </div>
                                         <div class="col-md-8">
-                                            <div class="card-body">
+                                            <div class="card-body" style="color: black;">
                                                 <h5 class="card-title">{{$producto->nombre}}</h5>
                                                 <p class="card-text">{{$producto->descripcion}}</p>
                                             </div>

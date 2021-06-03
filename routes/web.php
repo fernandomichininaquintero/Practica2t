@@ -16,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Productos::class, 'index'])->name('home');
 
-Route::get('/categoria/{categoria_id}', [Productos::class, 'showProductosCategoria'])->name('categoria.ver');
+Route::get('/categoria/{categoria_id}', [Productos::class, 'showProductosCategoria'])->name('categoria.ver')->middleware('auth');
 
-Route::get('/producto/{producto_id}', [Productos::class, 'showProducto'])->name('producto.ver');
+Route::get('/producto/{producto_id}', [Productos::class, 'showProducto'])->name('producto.ver')->middleware('auth');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

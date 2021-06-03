@@ -61,6 +61,38 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="nombre" type="text" class="form-control" name="nombre" required autocomplete="nombre">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="apellidos" class="col-md-4 col-form-label text-md-right">{{ __('Apellidos') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="apellidos" type="text" class="form-control" name="apellidos" required autocomplete="apellidos">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="dni" class="col-md-4 col-form-label text-md-right">{{ __('DNI') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="dni" type="text" class="form-control" name="dni" required autocomplete="dni">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Direccion') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="direccion" type="text" class="form-control" name="direccion" required autocomplete="direccion">
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -55,5 +55,35 @@
             @endforeach
             </div>
         </div>
+        <div class="row">
+            @foreach($productos as $producto)
+                @if($producto->destacado)
+                    <div class="col">
+                        <a href="{{route('producto.ver', ['producto_id'=>$producto->id])}}" style="color: black;">
+                            <div class="card mb-3 mr-2">
+                                <div class="row no-gutters">
+                                    <div class="col-3 col-sm-5">
+                                        <img src="/../practica2t/assets/img/{{$producto->imagen}}" class="card-img" alt="{{$producto->nombre}}" height="150px">
+                                    </div>
+                                    <div class="col-5 col-sm-7">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-uppercase">{{$producto->nombre}}</h5>
+                                            <p class="card-text">
+                                            @if($producto->descuento>0)
+                                                <small class="text-muted" style="text-decoration: line-through;">{{$producto->precio}}€</small></p>
+                                                <p class="card-text"><small style="color: red;">{{$producto->descuento}}%</small>
+                                            @endif
+                                                {{ $producto->getPrecioFinal()}}€</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </a>
+                    </div>
+                    
+                @endif 
+            @endforeach
+            
+        </div>
     </div>
 @endsection

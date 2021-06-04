@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Productos;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,7 @@ Route::get('/', [Productos::class, 'index'])->name('home');
 Route::get('/categoria/{categoria_id}', [Productos::class, 'showProductosCategoria'])->name('categoria.ver')->middleware('auth');
 
 Route::get('/producto/{producto_id}', [Productos::class, 'showProducto'])->name('producto.ver')->middleware('auth');
+
+Route::get('/carrito', )->name('carrito')->middleware('auth');
 
 Auth::routes();

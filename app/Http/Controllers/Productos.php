@@ -6,6 +6,7 @@ use App\Models\Producto;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 
+
 class Productos extends Controller
 {
     /**
@@ -15,8 +16,9 @@ class Productos extends Controller
      */
     public function index()
     {
-        $productos = Producto::get();
-        return view('portada', compact('productos'));
+        $productos = Producto::where('destacado', true)->get();
+        $destacados = Producto::where('destacado', true)->paginate(3);
+        return view('portada', compact('productos','destacados'));
     }
 
     /**
@@ -49,7 +51,7 @@ class Productos extends Controller
     public function showProductosCategoria($categoria_id)
     {
         return view('productosCategoria', ['categoria_id'=>$categoria_id, 
-        'productos'=>Producto::where('categoria_id',$categoria_id)->get(),
+        'productos'=>Producto::where('categoria_id',$categoria_id)->paginate(3),
         'nombreCategoria'=>Categoria::findOrFail($categoria_id)]);   
     }
 

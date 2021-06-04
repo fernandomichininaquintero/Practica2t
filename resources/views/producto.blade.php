@@ -6,7 +6,7 @@
     <div class="card mb-3 mr-2">
         <div class="row no-gutters">
             <div class="col-4 p-3">
-                <img src="/../practica2t/assets/img/{{$producto->imagen}}" class="card-img" alt="<?= $producto->nombre?>" height="300px">
+                <img src="{{ asset('img/' . $producto->imagen )}}" class="card-img" alt="<?= $producto->nombre?>" height="300px">
             </div>
             <div class="col">
                 <div class="card-body text-right">

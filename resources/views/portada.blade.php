@@ -10,60 +10,59 @@
             $count=1;
             @endphp
             @foreach($productos as $producto)
-                @if($producto->destacado) 
-                    @if($count==1)
-                        <div class="carousel-item active">  
-                            <a href="{{route('producto.ver', ['producto_id'=>$producto->id])}}" >  
-                                <div class="card text-white bg-warning mb-3" style="width: 540px; height: 150px;">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4">
-                                            <img src="/../practica2t/assets/img/{{$producto->imagen}}" alt="{{$producto->nombre}}" height="150px" width="150px">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body" style="color: black;">
-                                                <h5 class="card-title">{{$producto->nombre}}</h5>
-                                                <p class="card-text">{{$producto->descripcion}}</p>
-                                            </div>
+                @if($count==1)
+                    <div class="carousel-item active">  
+                        <a href="{{route('producto.ver', ['producto_id'=>$producto->id])}}" >  
+                            <div class="card text-white bg-warning mb-3" style="width: 540px; height: 150px;">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="{{ asset('img/' . $producto->imagen )}}" alt="{{$producto->nombre}}" height="150px" width="150px">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body" style="color: black;">
+                                            <h5 class="card-title">{{$producto->nombre}}</h5>
+                                            <p class="card-text">{{$producto->descripcion}}</p>
                                         </div>
                                     </div>
-                                </div> 
-                            </a>
-                        </div>          
-                        @php
-                        $count++;
-                        @endphp
-                    @else
-                        <div class="carousel-item">
-                            <a href="{{route('producto.ver', ['producto_id'=>$producto->id])}}">
-                                <div class="card text-white bg-warning mb-3" style="width: 540px; height: 150px;">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4">
-                                            <img src="/../practica2t/assets/img/{{$producto->imagen}}" alt="{{$producto->nombre}}" height="150px">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body" style="color: black;">
-                                                <h5 class="card-title">{{$producto->nombre}}</h5>
-                                                <p class="card-text">{{$producto->descripcion}}</p>
-                                            </div>
+                                </div>
+                            </div> 
+                        </a>
+                    </div>          
+                    @php
+                    $count++;
+                    @endphp
+                @else
+                    <div class="carousel-item">
+                        <a href="{{route('producto.ver', ['producto_id'=>$producto->id])}}">
+                            <div class="card text-white bg-warning mb-3" style="width: 540px; height: 150px;">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="{{ asset('img/' . $producto->imagen )}}" alt="{{$producto->nombre}}" height="150px">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body" style="color: black;">
+                                            <h5 class="card-title">{{$producto->nombre}}</h5>
+                                            <p class="card-text">{{$producto->descripcion}}</p>
                                         </div>
                                     </div>
-                                </div> 
-                            </a>
-                        </div>
-                    @endif
+                                </div>
+                            </div> 
+                        </a>
+                    </div>
                 @endif
             @endforeach
             </div>
         </div>
+
         <div class="row">
-            @foreach($productos as $producto)
-                @if($producto->destacado)
-                    <div class="col">
+
+            @foreach($destacados as $producto)
+                    <div class="col-4">
                         <a href="{{route('producto.ver', ['producto_id'=>$producto->id])}}" style="color: black;">
                             <div class="card mb-3 mr-2">
                                 <div class="row no-gutters">
                                     <div class="col-3 col-sm-5">
-                                        <img src="/../practica2t/assets/img/{{$producto->imagen}}" class="card-img" alt="{{$producto->nombre}}" height="150px">
+                                        <img src="{{ asset('img/' . $producto->imagen )}}" class="card-img" alt="{{$producto->nombre}}" height="150px">
                                     </div>
                                     <div class="col-5 col-sm-7">
                                         <div class="card-body">
@@ -80,10 +79,14 @@
                             </div> 
                         </a>
                     </div>
-                    
-                @endif 
             @endforeach
             
         </div>
+        <!-- PAGINACION -->
+            <div>
+                {{ $destacados->links() }}
+            </div>
+            <!-- FIN DE PAGINACION -->
+        
     </div>
 @endsection

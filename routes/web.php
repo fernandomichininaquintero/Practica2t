@@ -21,6 +21,6 @@ Route::get('/categoria/{categoria_id}', [Productos::class, 'showProductosCategor
 
 Route::get('/producto/{producto_id}', [Productos::class, 'showProducto'])->name('producto.ver')->middleware('auth');
 
-Route::get('/carrito', )->name('carrito')->middleware('auth');
+Route::get('/carrito', [])->name('carrito')->middleware('auth');
 
 Auth::routes();

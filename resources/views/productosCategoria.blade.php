@@ -23,7 +23,7 @@
                         <div class="card mb-3 mr-2">
                             <div class="row no-gutters">
                                 <div class="col-3 col-sm-5">
-                                    <img src="/../practica2t/assets/img/{{$producto->imagen}}" class="card-img" alt="{{$producto->nombre}}" height="150px">
+                                    <img src="{{ asset('img/' . $producto->imagen )}}" class="card-img" alt="{{$producto->nombre}}" height="150px">
                                 </div>
                                 <div class="col-5 col-sm-7">
                                     <div class="card-body">
@@ -45,6 +45,9 @@
             </div> 
         @endif                
     @endforeach
+    <div>
+        {{ $productos->links() }}
+    </div>
 </div>
     
 @endsection

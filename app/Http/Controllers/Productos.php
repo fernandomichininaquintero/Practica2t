@@ -16,8 +16,16 @@ class Productos extends Controller
      */
     public function index()
     {
+        
         $productos = Producto::where('destacado', true)->get();
-        $destacados = Producto::where('destacado', true)->paginate(3);
+
+        $destacados = Producto::where('destacado', true)
+            ->where('fecha_inicio', null)
+            ->orWhere('fecha_inicio', '<=', date('Y-m-d'))
+            ->where('fecha_fin', null)
+            ->orWhere('fecha_fin', '>', date('Y-m-d'))
+            ->paginate(3);
+            
         return view('portada', compact('productos','destacados'));
     }
 
@@ -70,8 +78,8 @@ class Productos extends Controller
         return view('producto', [
         'producto_id'=>$producto_id,
         'producto'=>$producto,
-        'precioFinal'=>$precioFinal, 
-        'categorias'=>Categoria::get()]);   
+        'precioFinal'=>$precioFinal,
+        ]);   
     }
 
     /**

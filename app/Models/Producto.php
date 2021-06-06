@@ -26,12 +26,4 @@ class Producto extends Model
             
         return $this->precio - $descuento;
     }
-
-    public function getDestacados()
-    {
-        if ($this->destacado){
-            $destacados = [$this];
-        }
-        return $destacados;
-    }
 }

@@ -52,6 +52,12 @@ $categorias = Categoria::get();
                                   document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
+                <a class="dropdown-item" href="{{ route('user.delete') }}">
+                  {{ __('Eliminar cuenta') }}
+                </a>
+                <a class="dropdown-item" href="{{ route('user.modify') }}">
+                  {{ __('Modificar cuenta') }}
+                </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf

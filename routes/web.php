@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Productos;
+use App\Http\Controllers\Users;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,6 +22,10 @@ Route::get('/categoria/{categoria_id}', [Productos::class, 'showProductosCategor
 
 Route::get('/producto/{producto_id}', [Productos::class, 'showProducto'])->name('producto.ver')->middleware('auth');
 
+Auth::routes();
+
 Route::get('/carrito', [])->name('carrito')->middleware('auth');
 
-Auth::routes();
+Route::any('/modificar', [Users::class, 'edit'])->name('user.modify')->middleware('auth');
+
+Route::any('/eliminar/{usuario_id}', [Users::class, 'destroy'])->name('user.delete')->middleware('auth');

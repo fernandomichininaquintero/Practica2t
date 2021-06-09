@@ -15,7 +15,7 @@
                             <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nombre" type="text" class="form-control" name="nombre" required autocomplete="nombre">
+                                <input id="nombre" type="text" class="form-control" name="nombre" required autocomplete="nombre" value="{{$usuario->nombre}}">
                             </div>
                         </div>
                         
@@ -23,7 +23,7 @@
                             <label for="apellidos" class="col-md-4 col-form-label text-md-right">{{ __('Apellidos') }}</label>
 
                             <div class="col-md-6">
-                                <input id="apellidos" type="text" class="form-control" name="apellidos" required autocomplete="apellidos">
+                                <input id="apellidos" type="text" class="form-control" name="apellidos" required autocomplete="apellidos" value="{{$usuario->apellidos}}">
                             </div>
                         </div>
 
@@ -31,7 +31,7 @@
                             <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Direccion') }}</label>
 
                             <div class="col-md-6">
-                                <input id="direccion" type="text" class="form-control" name="direccion" required autocomplete="direccion">
+                                <input id="direccion" type="text" class="form-control" name="direccion" required autocomplete="direccion" value="{{$usuario->direccion}}">
                             </div>
                         </div>
 
@@ -39,7 +39,7 @@
                             <label for="dni" class="col-md-4 col-form-label text-md-right">{{ __('DNI') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dni" type="text" class="form-control" name="dni" required autocomplete="dni">
+                                <input id="dni" type="text" class="form-control" name="dni" required autocomplete="dni" value="{{$usuario->dni}}">
                             </div>
                         </div>
 

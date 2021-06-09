@@ -35,9 +35,16 @@ class Users extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Request $request)
     {
-        return view('modify'); 
+        $user_id = Auth::id();
+        $usuario = User::findOrFail($user_id);
+
+        if ($request->has(['nombre', 'apellidos', 'dni', 'direccion'])) {
+            
+        }
+
+        return view('modify', compact('usuario')); 
     }
 
     /**

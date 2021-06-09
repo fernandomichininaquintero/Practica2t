@@ -26,6 +26,6 @@ Auth::routes();
 
 Route::get('/carrito', [])->name('carrito')->middleware('auth');
 
-Route::any('/modificar', [Users::class, 'edit'])->name('user.modify')->middleware('auth');
+Route::any('/modificar-usuario', [Users::class, 'edit'])->name('user.modify')->middleware('auth');
 
-Route::any('/eliminar/{usuario_id}', [Users::class, 'destroy'])->name('user.delete')->middleware('auth');
+Route::any('/eliminar-usuario', [Users::class, 'destroy'])->name('user.delete')->middleware('auth');

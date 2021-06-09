@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class Users extends Controller
 {
@@ -19,14 +20,16 @@ class Users extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function editView()
     {
-        //
+        $user_id = Auth::id();
+        $usuario = User::findOrFail($user_id);
+        return view('modify', compact('usuario')); 
     }
 
     /**
@@ -40,11 +43,28 @@ class Users extends Controller
         $user_id = Auth::id();
         $usuario = User::findOrFail($user_id);
 
-        if ($request->has(['nombre', 'apellidos', 'dni', 'direccion'])) {
-            
-        }
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'nombre'=> 'required|string|max:45',
+            'apellidos'=> 'required|string|max:80',
+            'dni'=> 'required|string|min:9|max:9',
+            'direccion'=> 'required|string|max:255',
+        ]);
 
-        return view('modify', compact('usuario')); 
+        if ($validator->fails()) {
+            return redirect('modificar-usuario')
+                        ->withErrors($validator)
+                        ->withInput();
+        }else{
+            $usuario->name = $request->input('name');
+            $usuario->nombre = $request->input('nombre');
+            $usuario->apellidos = $request->input('apellidos');
+            $usuario->dni = $request->input('dni');
+            $usuario->direccion = $request->input('direccion');
+
+            $usuario->save();
+            return redirect('/');
+        }
     }
 
     /**

@@ -9,8 +9,11 @@
             <a href="{{route('producto.ver', ['producto_id'=>$item->id])}}" style="color: black;">
                 <div class="card mb-3 mr-2">
                     <div class="row no-gutters">
+                    <div class="col-4 p-3">
+                        <img src="{{ asset('img/' . $item->attributes->imagen  )}}" class="card-img" alt="<?= $item->name ?>" height="300px">
+                    </div>
                         <div class="col-5 col-sm-7">
-                            <div class="card-body">
+                            <div class="card-body text-right">
                                 <h5 class="card-title text-uppercase">{{$item->name}}</h5>
                                 <p class="card-text">Precio:{{$item->price}}€</p>
                                 <p class="card-text">Cantidad:{{$item->quantity}}</p>

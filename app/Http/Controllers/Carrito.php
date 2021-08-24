@@ -43,6 +43,9 @@ class Carrito extends Controller
             'name' => $request->product_nombre,
             'price' =>$request->product_precio,
             'quantity' => $request->cantidad,
+            'attributes' => array(
+                'imagen' => $request->product_imagen
+            )
         ));
 
         return redirect('carrito');

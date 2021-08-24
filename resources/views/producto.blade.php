@@ -26,6 +26,7 @@
                         <input type="hidden" name="product_id" value="{{$producto->id}}">
                         <input type="hidden" name="product_nombre" value="{{$producto->nombre}}">
                         <input type="hidden" name="product_precio" value="{{$producto->getPrecioFinal()}}">
+                        <input type="hidden" name="product_imagen" value="{{$producto->imagen}}">
 
                         <input type="number" name="cantidad" value="1" min="1" max="{{$producto->stock}}">
                         <button class="btn btn-primary" type="submit">
